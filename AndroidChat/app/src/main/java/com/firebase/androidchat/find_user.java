@@ -54,6 +54,8 @@ public class find_user extends Activity implements LoaderCallbacks<Cursor> {
     private View mProgressView;
     private View mLoginFormView;
     public final static String EXTRA_MESSAGE = "com.mycompany.myfirstapp.MESSAGE";
+    public final static String CHANNEL_NAME = "com.mycompany.myfirstapp.CHANNEL_NAME";
+    private String FIREBASE_URL = "https://crackling-inferno-9785.firebaseio.com/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +66,7 @@ public class find_user extends Activity implements LoaderCallbacks<Cursor> {
         populateAutoComplete();
 
         mPasswordView = (EditText) findViewById(R.id.password);
+        mPasswordView.setText(FIREBASE_URL);
         mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView textView, int id, KeyEvent keyEvent) {
@@ -154,6 +157,11 @@ public class find_user extends Activity implements LoaderCallbacks<Cursor> {
         EditText editText = (EditText) findViewById(R.id.email);
         String message = editText.getText().toString();
         intent.putExtra(EXTRA_MESSAGE, message);
+
+        EditText channel = (EditText) findViewById(R.id.password);
+        String channel_name = channel.getText().toString();
+        intent.putExtra(CHANNEL_NAME, channel_name);
+
         startActivity(intent);
     }
 

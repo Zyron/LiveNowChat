@@ -9,7 +9,7 @@
     <string name="prompt_password">Password (optional)</string>
     <string name="action_sign_in">Go to chat</string>
     <string name="action_sign_in_short">Go chat</string>
-    <string name="error_invalid_email">Username is invalid</string>
+    <string name="error_invalid_email">Login as previous user</string>
     <string name="error_invalid_password">This password is too short</string>
     <string name="error_incorrect_password">This password is incorrect</string>
     <string name="error_field_required">This field is required</string>

@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.DataSetObserver;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
@@ -23,13 +24,14 @@ import java.util.Random;
 public class MainActivity extends ListActivity {
 
     // TODO: change this to your own Firebase URL
-    private static final String FIREBASE_URL = "https://crackling-inferno-9785.firebaseio.com/";
+    private String FIREBASE_URL = "https://crackling-inferno-9785.firebaseio.com/";
 
     private String mUsername;
     private Firebase mFirebaseRef;
     private ValueEventListener mConnectedListener;
     private ChatListAdapter mChatListAdapter;
     public final static String EXTRA_MESSAGE = "com.mycompany.myfirstapp.MESSAGE";
+    public final static String CHANNEL_NAME = "com.mycompany.myfirstapp.CHANNEL_NAME";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +42,15 @@ public class MainActivity extends ListActivity {
         setupUsername();
 
         setTitle("Chatting as " + mUsername);
+
+
+        //get channel
+        Intent intent = getIntent();
+        String channel = intent.getStringExtra(MainActivity.CHANNEL_NAME);
+        Log.d("Debug", channel);
+        //if ( channel.isEmpty() ) FIREBASE_URL = channel;
+        Toast.makeText(MainActivity.this, "Connected to " + FIREBASE_URL, Toast.LENGTH_LONG).show();
+
 
         // Setup our Firebase mFirebaseRef
         mFirebaseRef = new Firebase(FIREBASE_URL).child("chat");
@@ -109,16 +120,14 @@ public class MainActivity extends ListActivity {
 
     private void setupUsername() {
         SharedPreferences prefs = getApplication().getSharedPreferences("ChatPrefs", 0);
-        mUsername = prefs.getString("username", null);
-        if (mUsername == null) {
-            Random r = new Random();
-            // Assign a random user name if we don't have one saved.
-            //mUsername = "LiveNow" + r.nextInt(100000);
-
-            Intent intent = getIntent();
-            mUsername = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
-            prefs.edit().putString("username", mUsername).commit();
+        Intent intent = getIntent();
+        mUsername = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
+        if ( mUsername.isEmpty() ) {
+            mUsername = prefs.getString("username", null);
+            if ( mUsername == null ) mUsername = "random user";
         }
+        prefs.edit().putString("username", mUsername).commit();
+
     }
 
     private void sendMessage() {
