@@ -49,7 +49,8 @@ public class MainActivity extends ListActivity {
         String channel = intent.getStringExtra(MainActivity.CHANNEL_NAME);
         Log.d("Debug", channel);
         //if ( channel.isEmpty() ) FIREBASE_URL = channel;
-        Toast.makeText(MainActivity.this, "Connected to " + FIREBASE_URL, Toast.LENGTH_LONG).show();
+        FIREBASE_URL = channel;
+        Toast.makeText(MainActivity.this, "Connecting to " + FIREBASE_URL, Toast.LENGTH_LONG).show();
 
 
         // Setup our Firebase mFirebaseRef
@@ -98,9 +99,9 @@ public class MainActivity extends ListActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 boolean connected = (Boolean) dataSnapshot.getValue();
                 if (connected) {
-                    Toast.makeText(MainActivity.this, "Connected to Firebase", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Connected with " + FIREBASE_URL, Toast.LENGTH_LONG).show();
                 } else {
-                    Toast.makeText(MainActivity.this, "Disconnected from Firebase", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Disconnected: Wrong Channel or Lost of Internet", Toast.LENGTH_SHORT).show();
                 }
             }
 
