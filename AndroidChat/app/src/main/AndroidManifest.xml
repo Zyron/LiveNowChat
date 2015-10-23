@@ -28,6 +28,10 @@
             android:name=".MainActivity"
             android:label="@string/title_activity_find_user" >
         </activity>
+        <activity
+            android:name=".SMSActivity"
+            android:label="@string/title_activity_sms" >
+        </activity>
     </application>
 
 </manifest>
