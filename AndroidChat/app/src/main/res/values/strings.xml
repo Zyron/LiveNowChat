@@ -18,5 +18,7 @@
     </string>
     <string name="title_activity_sms">Send Message</string>
     <string name="title_activity_user_pad">AWDAWD</string>
+    <string name="title_activity_findone">Find My Mate</string>
+    <string name="phone_number">Phone Number</string>
 
 </resources>

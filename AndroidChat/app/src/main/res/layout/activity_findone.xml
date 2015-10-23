@@ -11,14 +11,16 @@
         android:layout_height="wrap_content" android:orientation="vertical">
 
 
-        <EditText android:id="@+id/userName" android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:hint="@string/prompt_email"
+        <EditText android:id="@+id/phoneNumberinFindUser" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:hint="@string/phone_number"
             android:maxLines="1" android:singleLine="true" />
 
         <Button android:id="@+id/findUser" style="?android:textAppearanceSmall"
             android:layout_width="match_parent" android:layout_height="wrap_content"
-            android:layout_marginTop="16dp" android:onClick="find_user" android:text="Find One"
+            android:layout_marginTop="16dp" android:onClick="find_users" android:text="Find One"
             android:textStyle="bold" />
+
+
 
     </LinearLayout>
 
