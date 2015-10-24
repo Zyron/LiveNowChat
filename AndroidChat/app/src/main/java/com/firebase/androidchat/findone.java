@@ -1,6 +1,7 @@
 package com.firebase.androidchat;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.app.Activity;
 import android.os.StrictMode;
@@ -22,6 +23,8 @@ import java.lang.reflect.Type;
 
 public class findone extends Activity {
     public static final String userInfoURL = "http://cpybcg.azurewebsites.net/api/users/";
+    public final static String EXTRA_MESSAGE = "com.mycompany.myfirstapp.MESSAGE";
+    public final static String CHANNEL_NAME = "com.mycompany.myfirstapp.CHANNEL_NAME";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,7 +62,14 @@ public class findone extends Activity {
             for ( userModel i : results ) {
                 if (i.getPhoneNumber().equals(phonenumberString)) {
                     //user found;
-                    Intent intent = new Intent(this, find_user.class);
+                    SharedPreferences prefs = getApplication().getSharedPreferences("ChatPrefs", 0);
+                    String mUsername = prefs.getString("username", null);
+
+                    Intent intent = new Intent(this, MainActivity.class);
+                    intent.putExtra(EXTRA_MESSAGE, mUsername);
+
+                    String channel_name = "https://crackling-inferno-9785.firebaseio.com/";
+                    intent.putExtra(CHANNEL_NAME, channel_name);
                     startActivity(intent);
                     return;
                 }
