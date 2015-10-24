@@ -12,7 +12,8 @@
 
 <EditText
     android:layout_width="fill_parent"
-    android:layout_height="wrap_content" android:id="@+id/PhoneNumberSMSEditText" android:hint="PhoneNumberToTest" />
+    android:layout_height="wrap_content" android:id="@+id/PhoneNumberSMSEditText" android:inputType="phone"
+    android:hint="PhoneNumberToTest" />
 
     <Button android:id="@+id/phoneMessage" style="?android:textAppearanceSmall"
         android:layout_width="match_parent" android:layout_height="wrap_content"
