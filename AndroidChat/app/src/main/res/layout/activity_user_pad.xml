@@ -11,6 +11,11 @@
         android:layout_height="wrap_content" android:orientation="vertical">
 
 
+    <Button android:id="@+id/phoneMessage" style="?android:textAppearanceSmall"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:layout_marginTop="16dp" android:onClick="to_phonemessage" android:text="Send SMS"
+        android:textStyle="bold" />
+
     <Button android:id="@+id/toChat" style="?android:textAppearanceSmall"
         android:layout_width="match_parent" android:layout_height="wrap_content"
         android:layout_marginTop="16dp" android:onClick="to_chat" android:text="Join Chat"

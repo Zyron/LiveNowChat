@@ -8,6 +8,7 @@
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
 
     <application
         android:name=".ChatApplication"
@@ -36,9 +37,19 @@
             android:name=".findone"
             android:label="@string/title_activity_findone" >
         </activity>
+        <activity android:name=".SmsPOCActivity" >
+        </activity>
         <activity
-            android:name=".SMSActivity"
-            android:label="@string/title_activity_sms" >
+            android:name=".ChatListActivity"
+            android:label="@string/title_chat_list" >
+        </activity>
+        <activity
+            android:name=".ChatDetailActivity"
+            android:label="@string/title_chat_detail"
+            android:parentActivityName=".ChatListActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.firebase.androidchat.ChatListActivity" />
         </activity>
     </application>
 

@@ -153,7 +153,7 @@ public class find_user extends Activity implements LoaderCallbacks<Cursor> {
         }
 
 
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, ChatListActivity.class);
         EditText editText = (EditText) findViewById(R.id.email);
         String message = editText.getText().toString();
         intent.putExtra(EXTRA_MESSAGE, message);

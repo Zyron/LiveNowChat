@@ -21,4 +21,10 @@
     <string name="title_activity_findone">Find My Mate</string>
     <string name="phone_number">Phone Number</string>
 
+    <string name="title_activity_smss">Find One</string>
+    <string name="title_chat_list">Chats</string>
+    <string name="title_chat_detail">Chat Detail</string>
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
