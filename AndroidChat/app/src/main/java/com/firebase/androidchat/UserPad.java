@@ -6,19 +6,23 @@ import android.app.Activity;
 import android.support.v7.app.AlertDialog;
 import android.telephony.SmsManager;
 import android.view.*;
+import android.widget.EditText;
 
 public class UserPad extends Activity {
+
+    private EditText phoneNumberSMSTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_pad);
+        phoneNumberSMSTextView = (EditText)findViewById(R.id.PhoneNumberSMSEditText);
     }
 
     public void to_phonemessage(View view)
     {
         try {
-            SmsManager.getDefault().sendTextMessage("+4798622627", null, "Hello SMS!", null, null);
+            SmsManager.getDefault().sendTextMessage(phoneNumberSMSTextView.getText().toString(), null, "Hello SMS!", null, null);
         } catch (Exception e) {
             AlertDialog.Builder alertDialogBuilder = new
                     AlertDialog.Builder(this);
